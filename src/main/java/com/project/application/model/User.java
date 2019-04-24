@@ -8,7 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /** 
@@ -30,6 +32,9 @@ public class User {
 	private Integer ranking=0;	
 	private Integer visible=1;
 	private Integer LBC;
+	@OneToOne(cascade={CascadeType.MERGE,CascadeType.REFRESH})
+	@JoinColumn(name="card_id")
+	private Card card;	
 	
 	public User() {
 		// TODO Auto-generated constructor stub
@@ -116,6 +121,14 @@ public class User {
 
 	public void setLBC(Integer lBC) {
 		LBC = lBC;
+	}
+
+	public Card getCard() {
+		return card;
+	}
+
+	public void setCard(Card card) {
+		this.card = card;
 	}
 	
 	

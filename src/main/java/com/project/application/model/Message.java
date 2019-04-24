@@ -10,7 +10,9 @@ import org.hibernate.annotations.CreationTimestamp;
 */
 public class Message {
 	private int senderId;
-	private User sender;
+	private String sender;
+	private int receiverId;
+	private String receiver;
 	private String message;
 	@CreationTimestamp
 	private Date dateTime;
@@ -27,12 +29,14 @@ public class Message {
 		this.senderId = senderId;
 	}
 
-	public User getSender() {
-		return sender;
+	
+
+	public int getReceiverId() {
+		return receiverId;
 	}
 
-	public void setSender(User sender) {
-		this.sender = sender;
+	public void setReceiverId(int receiverId) {
+		this.receiverId = receiverId;
 	}
 
 	public String getMessage() {
@@ -49,6 +53,22 @@ public class Message {
 
 	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
+	}
+
+	public String getSender() {
+		return sender;
+	}
+
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+
+	public String getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
 	}
 	
 	
